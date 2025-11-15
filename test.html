@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Word Collector Extension - Test Page</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.8;
+      padding: 40px;
+      max-width: 900px;
+      margin: 0 auto;
+      background: #f8f9fa;
+    }
+    
+    .header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 30px;
+      border-radius: 12px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    
+    h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+    
+    .subtitle {
+      font-size: 16px;
+      opacity: 0.9;
+    }
+    
+    .content {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+    
+    h2 {
+      color: #333;
+      margin-bottom: 15px;
+      font-size: 24px;
+    }
+    
+    p {
+      color: #555;
+      margin-bottom: 15px;
+    }
+    
+    .highlight-example {
+      background: #fff3cd;
+      border-left: 4px solid #ffc107;
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 4px;
+    }
+    
+    .instructions {
+      background: #d1ecf1;
+      border-left: 4px solid #17a2b8;
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 4px;
+    }
+    
+    .instructions h3 {
+      color: #0c5460;
+      margin-bottom: 10px;
+    }
+    
+    .instructions ul {
+      margin-left: 20px;
+      color: #0c5460;
+    }
+    
+    .instructions li {
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>📝 Word Collector Extension Test Page</h1>
+    <p class="subtitle">Try selecting any text below to test the extension</p>
+  </div>
+  
+  <div class="instructions">
+    <h3>🎯 How to Test:</h3>
+    <ul>
+      <li>Select any text below with your mouse</li>
+      <li>The selected text will be highlighted in yellow</li>
+      <li>A floating window will appear in the top-right corner</li>
+      <li>Your collected phrases will be saved automatically</li>
+      <li>Try dragging the floating window to move it around</li>
+    </ul>
+  </div>
+  
+  <div class="content">
+    <h2>Introduction to Artificial Intelligence</h2>
+    <p>
+      Artificial Intelligence (AI) is the simulation of human intelligence processes by machines, 
+      especially computer systems. These processes include learning, reasoning, and self-correction.
+    </p>
+    <p>
+      Machine learning is a subset of AI that provides systems the ability to automatically learn 
+      and improve from experience without being explicitly programmed. It focuses on the development 
+      of computer programs that can access data and use it to learn for themselves.
+    </p>
+    <div class="highlight-example">
+      <strong>Example Phrase:</strong> "Deep learning is part of a broader family of machine learning 
+      methods based on artificial neural networks with representation learning."
+    </div>
+  </div>
+  
+  <div class="content">
+    <h2>Natural Language Processing</h2>
+    <p>
+      Natural Language Processing (NLP) is a branch of artificial intelligence that helps computers 
+      understand, interpret and manipulate human language. NLP draws from many disciplines, including 
+      computer science and computational linguistics.
+    </p>
+    <p>
+      The ultimate objective of NLP is to read, decipher, understand, and make sense of human languages 
+      in a manner that is valuable. Most NLP techniques rely on machine learning to derive meaning from 
+      human languages.
+    </p>
+  </div>
+  
+  <div class="content">
+    <h2>Computer Vision</h2>
+    <p>
+      Computer vision is an interdisciplinary scientific field that deals with how computers can gain 
+      high-level understanding from digital images or videos. From the perspective of engineering, it 
+      seeks to understand and automate tasks that the human visual system can do.
+    </p>
+    <p>
+      Computer vision tasks include methods for acquiring, processing, analyzing and understanding 
+      digital images, and extraction of high-dimensional data from the real world in order to produce 
+      numerical or symbolic information.
+    </p>
+  </div>
+  
+  <div class="content">
+    <h2>Useful Phrases for Testing</h2>
+    <p>Here are some technical terms and phrases you can select to test the extension:</p>
+    <ul style="list-style: none; padding: 0;">
+      <li style="padding: 10px; margin: 5px 0; background: #f8f9fa; border-radius: 4px;">
+        ✓ "neural networks and deep learning algorithms"
+      </li>
+      <li style="padding: 10px; margin: 5px 0; background: #f8f9fa; border-radius: 4px;">
+        ✓ "supervised learning and unsupervised learning"
+      </li>
+      <li style="padding: 10px; margin: 5px 0; background: #f8f9fa; border-radius: 4px;">
+        ✓ "convolutional neural networks for image recognition"
+      </li>
+      <li style="padding: 10px; margin: 5px 0; background: #f8f9fa; border-radius: 4px;">
+        ✓ "transformer architecture and attention mechanisms"
+      </li>
+      <li style="padding: 10px; margin: 5px 0; background: #f8f9fa; border-radius: 4px;">
+        ✓ "reinforcement learning and policy optimization"
+      </li>
+    </ul>
+  </div>
+  
+  <div class="instructions">
+    <h3>💡 Tips:</h3>
+    <ul>
+      <li>Select short phrases or important terms</li>
+      <li>The floating window can be minimized by clicking the ➖ button</li>
+      <li>Click the 📥 button to export all collected phrases</li>
+      <li>Click the 🗑️ button to clear all collected items</li>
+      <li>Close the window with ✖️ (your data is still saved)</li>
+    </ul>
+  </div>
+</body>
+</html>

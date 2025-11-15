@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "英文划词收集器",
+  "version": "1.0.4",
+  "description": "划词高亮并收集英文词句,方便后续整理",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "downloads"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_end"
+    }
+  ],
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}

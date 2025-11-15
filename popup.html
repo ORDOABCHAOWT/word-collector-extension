@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>英文划词收集器</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      width: 320px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      padding: 16px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    
+    .container {
+      background: white;
+      border-radius: 12px;
+      padding: 16px;
+    }
+    
+    h1 {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .toggle-section {
+      margin-bottom: 16px;
+      padding: 12px;
+      background: #f8f9fa;
+      border-radius: 8px;
+    }
+    
+    .toggle-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    
+    .toggle-label {
+      font-size: 14px;
+      font-weight: 500;
+      color: #495057;
+    }
+    
+    .status-text {
+      font-size: 12px;
+      font-weight: 600;
+      color: #6c757d;
+      min-width: 50px;
+    }
+    
+    .status-text.enabled {
+      color: #28a745;
+    }
+    
+    /* Toggle Switch 样式 */
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 48px;
+      height: 24px;
+    }
+    
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: .3s;
+      border-radius: 24px;
+    }
+    
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: .3s;
+      border-radius: 50%;
+    }
+    
+    input:checked + .slider {
+      background-color: #667eea;
+    }
+    
+    input:checked + .slider:before {
+      transform: translateX(24px);
+    }
+    
+    .stats {
+      background: #f8f9fa;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 16px;
+    }
+    
+    .stat-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6px 0;
+      color: #495057;
+      font-size: 14px;
+    }
+    
+    .stat-value {
+      font-weight: 600;
+      color: #667eea;
+    }
+    
+    .actions {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    
+    button {
+      width: 100%;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    
+    .btn-primary {
+      background: #667eea;
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background: #5568d3;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    }
+    
+    .btn-secondary {
+      background: #6c757d;
+      color: white;
+    }
+    
+    .btn-secondary:hover {
+      background: #5a6268;
+    }
+    
+    .btn-danger {
+      background: #dc3545;
+      color: white;
+    }
+    
+    .btn-danger:hover {
+      background: #c82333;
+    }
+    
+    .tip {
+      margin-top: 16px;
+      padding: 12px;
+      background: #fff3cd;
+      border-left: 3px solid #ffc107;
+      border-radius: 4px;
+      font-size: 12px;
+      color: #856404;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📝 英文划词收集器</h1>
+    
+    <!-- 开关状态 -->
+    <div class="toggle-section">
+      <div class="toggle-container">
+        <span class="toggle-label">插件状态</span>
+        <label class="switch">
+          <input type="checkbox" id="toggleSwitch">
+          <span class="slider"></span>
+        </label>
+        <span class="status-text" id="statusText">已关闭</span>
+      </div>
+    </div>
+    
+    <div class="stats">
+      <div class="stat-item">
+        <span>已收集词句:</span>
+        <span class="stat-value" id="phraseCount">0</span>
+      </div>
+      <div class="stat-item">
+        <span>当前页面:</span>
+        <span class="stat-value" id="currentPage">-</span>
+      </div>
+    </div>
+    
+    <div class="actions">
+      <button class="btn-primary" id="showWindowBtn">
+        👁️ 显示浮窗
+      </button>
+      <button class="btn-secondary" id="exportBtn">
+        📋 复制全部到剪贴板
+      </button>
+      <button class="btn-danger" id="clearBtn">
+        🗑️ 清空所有词句
+      </button>
+    </div>
+    
+    <div class="tip">
+      💡 <strong>使用提示:</strong><br>
+      开启插件后，在网页上划选文本即可自动高亮并收集。点击"显示浮窗"查看所有收集的内容。
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
